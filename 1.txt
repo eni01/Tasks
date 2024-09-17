@@ -1,0 +1,38 @@
+let stri = prompt("enter string: ");
+let newstring = stri;
+let undo = [stri];
+let input = prompt("enter a character: ");
+
+while (input !== 'X') {
+    if (input === 'U') {
+        newstring = newstring.toUpperCase();
+        undo.push(newstring);
+    }
+    else if (input === 'L') {
+        newstring = newstring.toLowerCase();    
+        undo.push(newstring);    
+    }
+    else if (input === 'R') {
+        newstring = newstring.split('').reverse().join('');
+        undo.push(newstring);
+    }
+    else if (input === 'C') {
+        let oldChar = prompt("You want to change what character? ");
+        let newChar = prompt("To what character? ");
+        for (let index = 0; index < stri.length; index++) {
+            newstring = newstring.replaceAll(oldChar, newChar);
+        }
+        undo.push(newstring);
+    }
+    else if (input === 'Z') {
+        if (undo.length > 1) {
+            undo.pop();
+            newstring = undo[undo.length - 1];
+        }
+        
+    }
+    input = prompt("enter a character: ");
+}
+    if (input === 'X') {
+        console.log(newstring);
+    }

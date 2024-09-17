@@ -1,0 +1,11 @@
+let M;
+let P = 100000;
+let r = 0.005;
+let n = 180;
+
+let base = (1 + r);
+let t = Math.pow(base, n);
+let top = t * P * r;
+let bottom = t - 1;
+M = top / bottom;
+console.log(`final answer ${M}`);

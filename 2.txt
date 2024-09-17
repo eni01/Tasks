@@ -1,0 +1,9 @@
+function Gregorian(year) {
+    let leap = false;
+    if ((year % 4 === 0 && year % 100 !== 0) || year % 400 === 0) {
+            leap = true;
+    }
+    return leap;
+}
+
+console.log(Gregorian(2400) ? 'T' : 'F');
